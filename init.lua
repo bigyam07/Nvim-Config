@@ -27,4 +27,4 @@ require "lazy_setup"
 require "polish"
 
 vim.o.swapfile = false
-
+vim.o.mouse = "a"
