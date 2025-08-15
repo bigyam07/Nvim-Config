@@ -13,6 +13,7 @@ require("lazy").setup({
   },
   { import = "community" },
   { import = "plugins" },
+  { import = "user.plugins"},
 
   -- Just add autotag plugin, no treesitter block here!
   {
