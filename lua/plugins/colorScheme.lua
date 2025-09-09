@@ -17,7 +17,7 @@ return {
       }
 
       -- Set rose-pine as the colorscheme
-      vim.cmd.colorscheme "rose-pine"
+      -- vim.cmd.colorscheme "rose-pine"
 
       -- Override background to pure black
       vim.api.nvim_set_hl(0, "Normal",       { bg = "#000000" })
@@ -32,12 +32,29 @@ return {
   },
 
   -- Catppuccin (installed but not applied by default)
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 999,
-  },
+{
+  "catppuccin/nvim",
+  name = "catppuccin",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("catppuccin").setup({
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      transparent_background = false,
+      term_colors = true,
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        treesitter = true,
+        notify = false,
+        mini = false,
+      },
+    })
+    vim.cmd.colorscheme("catppuccin") -- apply catppuccin
+  end,
+},
 
   -- Kanagawa
   {
